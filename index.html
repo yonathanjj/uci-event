@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.png" type="image/png" />
+
     <title>UCI Kigali 2025 | Bralirwa Fan Hub</title>
 
     <!-- Google Fonts -->
@@ -21,20 +23,18 @@
 <!-- Header -->
 <header class="main-header">
     <div class="container">
-        <a href="#" class="logo">KIGALI<span>2025</span></a>
-        <button class="menu-toggle" aria-label="Open Navigation Menu">
-            <div class="bar"></div> <div class="bar"></div> <div class="bar"></div>
-        </button>
+        <a href="index.html" class="logo">
+            <img src="logo2.png" alt="Kigali 2025 Logo">
+        </a>
         <ul class="nav-links">
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#discover">Discover</a></li>
-            <li><a href="#register">Register</a></li>
+            <li><a href="#hero">Discover UCI</a></li>
+            <li><a href="#discover">The Bralirwa Fan Zone Experience</a></li>
+            <li><a href="#register">Fan Zone Location/schedule</a></li>
         </ul>
     </div>
 </header>
 
 <main>
-    <!-- Hero Section -->
     <section id="hero" class="hero-section">
         <div class="video-background">
             <video autoplay loop muted playsinline><source src="hero.mp4" type="video/mp4"></video>
@@ -42,24 +42,29 @@
         <div class="container">
             <div class="hero-content-wrapper">
                 <div class="hero-text">
-                    <span class="hero-pre-title hero-anim-item">UCI ROAD WORLD CHAMPIONSHIPS</span>
-                    <h1 class="hero-anim-item">THE WORLD RIDES <br><span>IN RWANDA</span></h1>
+                    <div class="sponsor-banner hero-anim-item">
+                        <span class="sponsor-text">Proud Beverage Sponsor Of</span>
+                        <img src="logo2.png" alt="UCI 2025 Road World Championships Logo" class="sponsor-logo-img">
+                    </div>
+                    <h1 class="hero-anim-item">Bralirwa brings the world to ride <br><span>in Rwanda</span></h1>
                     <p class="hero-anim-item">Welcome to the official fan hub, proudly sponsored by Bralirwa. Immerse yourself in the electric atmosphere where cycling passion meets vibrant culture.</p>
                 </div>
             </div>
         </div>
+
+        <!-- This is the decorative logo -->
+        <img src="brlogo.png" alt="Rwanda Map Decoration" class="hero-decoration-logo">
     </section>
 
     <!-- Discover Section -->
     <section id="discover">
         <div class="container">
-            <h2 class="section-title anim-element">Discover The Event</h2>
             <div class="discover-cards">
                 <!-- Card 1: What is UCI? -->
                 <div class="card anim-element">
                     <img src="d1.png" alt="Cyclists racing on a road">
                     <div class="card-content">
-                        <h3>What is UCI?</h3>
+                        <h3>Discover UCI</h3>
                         <p>The Union Cycliste Internationale is the world governing body for sports cycling and oversees international events.</p>
                         <a href="https://www.uci.org/competition-hub/2025-uci-road-world-championships/7mnrx8NLAbor8iWnlpCuwe?tab=overview" target="_blank" class="card-cta">Visit Site</a>
                     </div>
@@ -68,7 +73,7 @@
                 <div class="card anim-element" style="--delay: 0.1s;">
                     <img src="b2.png" alt="Vibrant festival with lights">
                     <div class="card-content">
-                        <h3>Fun Zone Activities</h3>
+                        <h3>The Bralirwa Fan Zone Experience</h3>
                         <p>Dive into a world of excitement with live music, food stalls, interactive games, and exclusive fan experiences.</p>
                         <button class="card-cta" data-modal-target="#fun-zone-modal">Explore</button>
                     </div>
@@ -77,7 +82,7 @@
                 <div class="card anim-element" style="--delay: 0.2s;">
                     <img src="d3.png" alt="A map of a city with pins">
                     <div class="card-content">
-                        <h3>Fun zone locations</h3>
+                        <h3>Fan Zone Locations / Schedule</h3>
                         <p>Find your way to the main event areas and fan zones with our interactive location guide and maps.</p>
                         <button class="card-cta" data-modal-target="#locations-modal">Find Us</button>
                     </div>
@@ -89,40 +94,14 @@
 
     <!-- REGISTER & FOOTER SECTION -->
     <section id="register" class="register-section">
-        <div class="container">
-            <div class="register-content register-anim">
-                <h2 class="section-title">Join the Fun Club <br>"Don't Miss Out!"</h2>
-                <p class="section-subtitle">
-                    build Friendships, be invited to exclusive events, live race updates, and chances to win prizes from Bralirwa.
-                </p>
 
-                <!-- Social Signup -->
-                <a href="#" class="btn-google">
-                    <i class="fab fa-google"></i>
-                    Continue with Google
-                </a>
-
-                <div class="separator">OR</div>
-
-                <!-- Manual Form -->
-                <form class="register-form">
-                    <div class="form-group">
-                        <input type="text" id="name" required>
-                        <label for="name">Full Name</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" required>
-                        <label for="email">Email Address</label>
-                    </div>
-                    <button type="submit" class="btn-submit">Create Account</button>
-                </form>
-            </div>
-        </div>
 
         <footer class="site-footer register-anim">
             <div class="container footer-grid">
                 <div class="footer-col">
-                    <a href="#" class="logo">KIGALI<span>2025</span></a>
+                    <a href="index.html" class="logo">
+                        <img src="logo.png" alt="Kigali 2025 Logo">
+                    </a>
                     <p class="footer-tagline">The official fan experience.</p>
                 </div>
                 <div class="footer-col">
@@ -157,59 +136,91 @@
     </section>
 </main>
 
-<!-- Modals / Popups -->
+<!-- Fun Zone Modal -->
 <div class="modal-overlay" id="fun-zone-modal">
     <div class="modal">
         <button class="close-modal">&times;</button>
         <div class="modal-header">
-            <h3><i class="fas fa-star"></i> Fun Zone Experience</h3>
-            <p>The most exciting spot at the championship!</p>
+            <h3><i class="fas fa-star"></i> The Bralirwa Fan Zone Experience</h3>
+            <p>Join the Fun in the Fan Zone</p>
         </div>
         <div class="modal-body">
-            <h4>What's On</h4>
-            <ul class="activities-list">
-                <li><i class="fas fa-music"></i> <strong>Live DJ Sets:</strong> Top local and international DJs.</li>
-                <li><i class="fas fa-gamepad"></i> <strong>VR Cycling Simulators:</strong> Race the track yourself!</li>
-                <li><i class="fas fa-gift"></i> <strong>Bralirwa Prize Hub:</strong> Scan your QR code to win big.</li>
-            </ul>
-            <hr>
-            <h4>Sign Up for Giveaways</h4>
-            <form class="modal-form">
-                <p>Enter your details for a chance to win exclusive merchandise!</p>
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <button type="submit" class="btn">Enter Now</button>
-            </form>
+            <!-- Tabs for navigation inside the modal -->
+            <div class="tabs">
+                <button class="tab-link active" data-tab="fz-experiences">Experiences</button>
+                <button class="tab-link" data-tab="fz-logistics">Location & Schedule</button>
+            </div>
+
+            <div class="tab-content-wrapper">
+                <!-- Tab 1: Experiences -->
+                <div id="fz-experiences" class="tab-content active">
+                    <h4>What's On</h4>
+                    <ul class="activities-list">
+                        <li>
+                            <i class="fas fa-tv"></i>
+                            <div class="activity-text"><strong>Live Viewing:</strong><span>Watch all the races live on our giant screens.</span></div>
+                        </li>
+                        <li>
+                            <i class="fas fa-music"></i>
+                            <div class="activity-text"><strong>Live DJ Sets:</strong><span>Featuring top local and international artists.</span></div>
+                        </li>
+                        <li>
+                            <i class="fas fa-vr-cardboard"></i>
+                            <div class="activity-text"><strong>Live VR Cycling:</strong><span>Experience the race track in virtual reality.</span></div>
+                        </li>
+                        <li>
+                            <i class="fas fa-bicycle"></i>
+                            <div class="activity-text"><strong>Spin Classes:</strong><span>Join high-energy spin sessions throughout the day.</span></div>
+                        </li>
+                    </ul>
+                    <hr>
+                    <form class="modal-form">
+                        <p>Sign up now for exclusive giveaway alerts!</p>
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit" class="btn">Enter</button>
+                    </form>
+                </div>
+
+                <!-- Tab 2: Locations & Schedule -->
+                <div id="fz-logistics" class="tab-content">
+                    <h4>Schedule</h4>
+                    <a href="https://ucikigali2025.rw/competition-program/" target="_blank" class="btn-secondary">View Full Competition Program</a>
+                    <hr>
+                    <h4>Fan Zone Locations</h4>
+                    <ul class="locations-list">
+                        <li><i class="fas fa-map-marker-alt"></i> <strong>Nyabugogo:</strong> Sept 21 - 24</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <strong>The Prince House:</strong> Sept 21 - 24</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <strong>Woodland:</strong> Sept 24 - 28</li>
+                        <li><i class="fas fa-map-marker-alt"></i> <strong>Kigali Heights:</strong> Sept 21 - 28</li>
+                    </ul>
+                    <hr>
+                    <h4>How to Get There</h4>
+                    <p>For detailed maps and directions to the main venues, use our location guide.</p>
+                    <!-- This button will close this modal and open the other one -->
+                    <button class="btn-secondary" data-modal-target="#locations-modal" data-modal-switch="true">
+                        Open Location Guide
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
+<!-- Locations Modal -->
 <div class="modal-overlay" id="locations-modal">
     <div class="modal">
         <button class="close-modal">&times;</button>
         <div class="modal-header">
-            <h3><i class="fas fa-map-marked-alt"></i> Getting Here</h3>
+            <h3><i class="fas fa-map-marked-alt"></i> Bralirwa's Fan Zone</h3>
             <p>Follow our guides to get to the action smoothly.</p>
         </div>
         <div class="modal-body">
-            <div class="location-tabs">
-                <div class="tabs">
-                    <button class="tab-link active" data-tab="main">Main Venue</button>
-                    <button class="tab-link" data-tab="parking">Parking</button>
-                </div>
-                <div class="tab-content-wrapper">
-                    <div id="main" class="tab-content active">
-                        <h4>Kigali Convention Centre</h4>
-                        <p>This is the central hub for the event. All shuttles lead here.</p>
-                        <!-- IMPORTANT: Replace this with your actual Google Maps embed code! -->
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.525833219463!2d30.09033397475171!3d-1.9419447368817658!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca6a3138b251d%3A0x1e8a92be201888dd!2sKigali%20Convention%20Centre!5e0!3m2!1sen!2sus!4v1716312651030!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                    <div id="parking" class="tab-content">
-                        <h4>Designated Parking</h4>
-                        <p>Follow signs to the Gikondo Expo Grounds for designated event parking. Free shuttles are available.</p>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.493999942023!2d30.07548097475177!3d-1.956049936856417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca68018386861%3A0x7d8137355201438b!2sGikondo%20Expo%20Grounds!5e0!3m2!1sen!2sus!4v1716312708309!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
+            <!-- The tab system has been removed for simplicity -->
+            <div class="location-content">
+                <h4>Kigali Convention Centre</h4>
+                <p>This is the central hub for the event. All shuttles lead here.</p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.525833219463!2d30.09033397475171!3d-1.9419447368817658!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca6a3138b251d%3A0x1e8a92be201888dd!2sKigali%20Convention%2C%20Centre!5e0!3m2!1sen!2sus!4v1716312651030!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </div>

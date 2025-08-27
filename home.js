@@ -1,10 +1,27 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // --- Code for Header Scroll Effect ---
+    // --- Code for Header Scroll Effect & NEW Hamburger Menu ---
     const header = document.querySelector('.main-header');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
 
     window.addEventListener('scroll', () => {
-        // Add 'scrolled' class to header when user scrolls down
         header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Event listener to open/close the mobile menu
+    menuToggle.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+
+    // Event listener to close the menu when a link is clicked
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (navLinks.classList.contains('active')) {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
     });
 
     // --- GSAP Animations (No changes needed here) ---
@@ -46,7 +63,14 @@ document.addEventListener('DOMContentLoaded', function() {
     openModalButtons.forEach(button => {
         button.addEventListener('click', () => {
             const modal = document.querySelector(button.dataset.modalTarget);
-            openModal(modal);
+             // Logic to switch between modals
+            if (button.hasAttribute('data-modal-switch')) {
+                const currentModal = button.closest('.modal-overlay');
+                closeModal(currentModal);
+                setTimeout(() => { openModal(modal); }, 300);
+            } else {
+                openModal(modal);
+            }
         });
     });
 

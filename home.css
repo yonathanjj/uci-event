@@ -215,18 +215,85 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
 }
 
 /* 4. Discover Section (REDESIGNED) */
-#discover { padding: 100px 0; }
-.section-title { font-size: clamp(2.5rem, 6vw, 3.5rem); text-align: center; margin-bottom: 3rem; color: var(--text-color); }
-.discover-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
+/* 4. Discover Section (REDESIGNED) */
+#discover {
+    /* FIX: Reduced padding for mobile and removed bottom padding entirely */
+    padding: 4rem 0 0;
+}
+.section-title {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--text-color);
+}
+.discover-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+}
+.card {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-10px);
+}
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(11, 29, 22, 0.95) 20%, rgba(11, 29, 22, 0.8) 50%, transparent 100%);
+    color: var(--text-color);
+}
+.card-content h3 {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+.card-content p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+.card-cta {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--text-color);
+    color: var(--dark-navy-bg);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+.card-cta:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.02);
+}
 
-.card { position: relative; border-radius: 24px; overflow: hidden; aspect-ratio: 3 / 4; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: transform 0.3s ease; }
-.card:hover { transform: translateY(-10px); }
-.card img { width: 100%; height: 100%; object-fit: cover; }
-.card-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; background: linear-gradient(to top, rgba(11, 29, 22, 0.95) 20%, rgba(11, 29, 22, 0.8) 50%, transparent 100%); color: var(--text-color); }
-.card-content h3 { font-size: 2rem; font-weight: 900; margin-bottom: 0.5rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
-.card-content p { font-size: 1rem; color: var(--text-secondary); margin-bottom: 1.5rem; line-height: 1.5; }
-.card-cta { display: block; width: 100%; padding: 1rem; background-color: var(--text-color); color: var(--dark-navy-bg); text-decoration: none; font-weight: 600; font-size: 1.1rem; border-radius: 50px; transition: all 0.3s ease; border: none; cursor: pointer; text-align: center; }
-.card-cta:hover { background-color: #f0f0f0; transform: scale(1.02); }
+/* Restore larger padding only on desktop */
+@media (min-width: 992px) {
+    #discover {
+        padding-top: 100px;
+    }
+}
 
 /* 5. Modal Styles (REDESIGNED) */
 .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(11, 29, 22, 0.7); backdrop-filter: blur(8px); display: flex; justify-content: center; align-items: center; z-index: 2000; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
@@ -285,11 +352,12 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
 
 /* --- 8. Register & Footer Section --- */
 
+/* --- 8. Register & Footer Section --- */
 .register-section {
-    padding: 100px 0 0; /* No bottom padding, as footer is attached */
+    /* FIX: Reduced padding for mobile */
+    padding: 4rem 0 0;
     position: relative;
     overflow: hidden;
-    /* New Subtle Dot Pattern Background */
     background-color: var(--dark-navy-bg);
     background-image: radial-gradient(rgba(46, 204, 113, 0.1) 1px, transparent 1px);
     background-size: 30px 30px;
@@ -298,8 +366,15 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
 .register-content {
     max-width: 500px;
     margin: 0 auto;
-    position: relative; /* Ensure content is above any pseudo-elements */
+    position: relative;
     z-index: 2;
+}
+
+/* Restore larger padding only on desktop */
+@media (min-width: 992px) {
+    .register-section {
+        padding-top: 100px;
+    }
 }
 
 .section-subtitle { color: var(--text-secondary); margin-bottom: 2.5rem; }

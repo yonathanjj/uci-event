@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UCI Kigali 2025 | Bralirwa Fan Hub</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Your Stylesheet -->
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+<!-- Header -->
+<header class="main-header">
+    <div class="container">
+        <a href="#" class="logo">KIGALI<span>2025</span></a>
+        <button class="menu-toggle" aria-label="Open Navigation Menu">
+            <div class="bar"></div> <div class="bar"></div> <div class="bar"></div>
+        </button>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#discover">Discover</a></li>
+            <li><a href="#register">Register</a></li>
+        </ul>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="video-background">
+            <video autoplay loop muted playsinline><source src="fake.mp4" type="video/mp4"></video>
+        </div>
+        <div class="container">
+            <div class="hero-content-wrapper">
+                <div class="hero-text">
+                    <span class="hero-pre-title hero-anim-item">UCI ROAD WORLD CHAMPIONSHIPS</span>
+                    <h1 class="hero-anim-item">THE WORLD RIDES <br><span>IN RWANDA</span></h1>
+                    <p class="hero-anim-item">Welcome to the official fan hub, proudly sponsored by Bralirwa. Immerse yourself in the electric atmosphere where cycling passion meets vibrant culture.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discover Section -->
+    <section id="discover">
+        <div class="container">
+            <h2 class="section-title anim-element">Discover The Event</h2>
+            <div class="discover-cards">
+                <!-- Card 1: What is UCI? -->
+                <div class="card anim-element">
+                    <img src="d1.png" alt="Cyclists racing on a road">
+                    <div class="card-content">
+                        <h3>What is UCI?</h3>
+                        <p>The Union Cycliste Internationale is the world governing body for sports cycling and oversees international events.</p>
+                        <a href="https://www.uci.org/competition-hub/2025-uci-road-world-championships/7mnrx8NLAbor8iWnlpCuwe?tab=overview" target="_blank" class="card-cta">Visit Site</a>
+                    </div>
+                </div>
+                <!-- Card 2: Fun Zone -->
+                <div class="card anim-element" style="--delay: 0.1s;">
+                    <img src="b2.png" alt="Vibrant festival with lights">
+                    <div class="card-content">
+                        <h3>Fun Zone Activities</h3>
+                        <p>Dive into a world of excitement with live music, food stalls, interactive games, and exclusive fan experiences.</p>
+                        <button class="card-cta" data-modal-target="#fun-zone-modal">Explore</button>
+                    </div>
+                </div>
+                <!-- Card 3: Locations -->
+                <div class="card anim-element" style="--delay: 0.2s;">
+                    <img src="d3.png" alt="A map of a city with pins">
+                    <div class="card-content">
+                        <h3>Event Locations</h3>
+                        <p>Find your way to the main event areas and fan zones with our interactive location guide and maps.</p>
+                        <button class="card-cta" data-modal-target="#locations-modal">Find Us</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- REGISTER & FOOTER SECTION -->
+    <section id="register" class="register-section">
+        <div class="container">
+            <div class="register-content register-anim">
+                <h2 class="section-title">Join The Fan Hub</h2>
+                <p class="section-subtitle">
+                    Sign up for exclusive content, live race updates, and chances to win prizes from Bralirwa.
+                </p>
+
+                <!-- Social Signup -->
+                <a href="#" class="btn-google">
+                    <i class="fab fa-google"></i>
+                    Continue with Google
+                </a>
+
+                <div class="separator">OR</div>
+
+                <!-- Manual Form -->
+                <form class="register-form">
+                    <div class="form-group">
+                        <input type="text" id="name" required>
+                        <label for="name">Full Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" required>
+                        <label for="email">Email Address</label>
+                    </div>
+                    <button type="submit" class="btn-submit">Create Account</button>
+                </form>
+            </div>
+        </div>
+
+        <footer class="site-footer register-anim">
+            <div class="container footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo">KIGALI<span>2025</span></a>
+                    <p class="footer-tagline">The official fan experience.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Event</h4>
+                    <ul>
+                        <li><a href="#discover">Discover</a></li>
+                        <li><a href="#">Schedule</a></li>
+                        <li><a href="#">Teams</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="container copyright-container">
+                <p>&copy; 2024 UCI Kigali 2025 Experience. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </section>
+</main>
+
+<!-- Modals / Popups -->
+<div class="modal-overlay" id="fun-zone-modal">
+    <div class="modal">
+        <button class="close-modal">&times;</button>
+        <div class="modal-header">
+            <h3><i class="fas fa-star"></i> Fun Zone Experience</h3>
+            <p>The most exciting spot at the championship!</p>
+        </div>
+        <div class="modal-body">
+            <h4>What's On</h4>
+            <ul class="activities-list">
+                <li><i class="fas fa-music"></i> <strong>Live DJ Sets:</strong> Top local and international DJs.</li>
+                <li><i class="fas fa-gamepad"></i> <strong>VR Cycling Simulators:</strong> Race the track yourself!</li>
+                <li><i class="fas fa-gift"></i> <strong>Bralirwa Prize Hub:</strong> Scan your QR code to win big.</li>
+            </ul>
+            <hr>
+            <h4>Sign Up for Giveaways</h4>
+            <form class="modal-form">
+                <p>Enter your details for a chance to win exclusive merchandise!</p>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <button type="submit" class="btn">Enter Now</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="locations-modal">
+    <div class="modal">
+        <button class="close-modal">&times;</button>
+        <div class="modal-header">
+            <h3><i class="fas fa-map-marked-alt"></i> Getting Here</h3>
+            <p>Follow our guides to get to the action smoothly.</p>
+        </div>
+        <div class="modal-body">
+            <div class="location-tabs">
+                <div class="tabs">
+                    <button class="tab-link active" data-tab="main">Main Venue</button>
+                    <button class="tab-link" data-tab="parking">Parking</button>
+                </div>
+                <div class="tab-content-wrapper">
+                    <div id="main" class="tab-content active">
+                        <h4>Kigali Convention Centre</h4>
+                        <p>This is the central hub for the event. All shuttles lead here.</p>
+                        <!-- IMPORTANT: Replace this with your actual Google Maps embed code! -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.525833219463!2d30.09033397475171!3d-1.9419447368817658!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca6a3138b251d%3A0x1e8a92be201888dd!2sKigali%20Convention%20Centre!5e0!3m2!1sen!2sus!4v1716312651030!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div id="parking" class="tab-content">
+                        <h4>Designated Parking</h4>
+                        <p>Follow signs to the Gikondo Expo Grounds for designated event parking. Free shuttles are available.</p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3987.493999942023!2d30.07548097475177!3d-1.956049936856417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca68018386861%3A0x7d8137355201438b!2sGikondo%20Expo%20Grounds!5e0!3m2!1sen!2sus!4v1716312708309!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- GSAP & Your Script -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="home.js"></script>
+</body>
+</html>

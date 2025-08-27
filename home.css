@@ -162,6 +162,25 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
 
 /* --- Media Queries --- */
 
+.cta-button {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.8rem 2.5rem;
+    background-color: var(--primary-green);
+    color: var(--dark-navy-bg);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(46, 204, 113, 0.4);
+}
+
+.cta-button:hover {
+    background-color: #3bff86;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(46, 204, 113, 0.5);
+}
 /* Desktop layout for Header */
 @media (min-width: 992px) {
     .main-header .container {

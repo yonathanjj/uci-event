@@ -142,14 +142,59 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
 }
 
 /* 3. Hero Section */
-.hero-section { height: 100vh; min-height: 700px; position: relative; display: flex; align-items: center; padding: 0; overflow: hidden; }
+.hero-section {
+    height: 100vh;
+    min-height: 700px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    overflow: hidden;
+
+    /* --- NEW BACKGROUND IMAGE STYLES --- */
+    /* Replace 'hero-background.jpg' with the path to your image */
+    background-image: url('b2.png');
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: center center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from tiling */
+}
+
+/* --- THESE RULES ARE NO LONGER NEEDED --- */
+/*
 .video-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
 .video-background video { width: 100%; height: 100%; object-fit: cover; }
-.hero-section::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, var(--dark-navy-bg) 5%, rgba(11, 29, 22, 0.7) 50%, rgba(11, 29, 22, 0.4) 100%); z-index: 2; }
+*/
+/* --- END OF REMOVED RULES --- */
 
-/* --- Z-INDEX FIX FOR VISIBILITY --- */
-.hero-content-wrapper { position: relative; z-index: 4; /* Content is on top */ display: flex; justify-content: center; align-items: center; width: 100%; }
-.hero-decoration-logo { position: absolute; bottom: 3rem; right: 20rem; width: 300px;  pointer-events: none; z-index: 3; /* Logo is visible above the gradient but below the content */ }
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, var(--dark-navy-bg) 5%, rgba(11, 29, 22, 0.7) 50%, rgba(11, 29, 22, 0.4) 100%);
+    z-index: 2;
+}
+
+/* --- Z-INDEX FIX FOR VISIBILITY (This part remains the same) --- */
+.hero-content-wrapper {
+    position: relative;
+    z-index: 4; /* Content is on top */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.hero-decoration-logo {
+    position: absolute;
+    bottom: 3rem;
+    right: 20rem;
+    width: 300px;
+    pointer-events: none;
+    z-index: 3; /* Logo is visible above the gradient but below the content */
+}
 /* --- End of visibility fix --- */
 
 .hero-text { text-align: center; max-width: 800px; }

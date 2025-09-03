@@ -35,16 +35,17 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
     padding: 0.8rem 0;
 }
 
-/* On mobile, stack the logo and menu toggle vertically */
+/* --- UPDATED FOR MOBILE --- */
+/* Align logo and menu toggle on the same line */
 .main-header .container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-    gap: 1rem; /* Space between logo and hamburger */
 }
 
 .main-header .logo img {
-    height: 40px;
+    height: 35px;
     display: block;
 }
 
@@ -73,8 +74,11 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
 .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
 .menu-toggle.active .bar:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
 
-/* Navigation links are hidden by default on mobile */
+/* Navigation links are under the header, centered */
 .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -84,14 +88,16 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
     margin: 0;
     width: 100%;
     overflow: hidden;
-    max-height: 0; /* This is how we hide it */
-    transition: max-height 0.5s ease-in-out, margin-top 0.5s ease-in-out;
+    max-height: 0;
+    transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+    background-color: rgba(11, 29, 22, 0.9);
+    backdrop-filter: blur(5px);
 }
 
 /* When active, the nav links are revealed */
 .nav-links.active {
-    max-height: 500px; /* Animate to this height */
-    margin-top: 1rem; /* Add some space when it opens */
+    max-height: 500px;
+    padding: 2rem 0;
 }
 
 .nav-links a {
@@ -116,9 +122,8 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
         padding: 0.8rem 0;
     }
 
-    .main-header .container {
-        flex-direction: row;
-        justify-content: space-between;
+    .main-header .logo img {
+        height: 45px;
     }
 
     /* Hide the hamburger on desktop */
@@ -128,16 +133,21 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
 
     /* Reset nav-links for desktop layout */
     .nav-links {
+        position: static;
         display: flex;
         flex-direction: row;
         width: auto;
         gap: 2rem;
-        max-height: none; /* Always visible */
+        max-height: none;
         margin-top: 0;
+        padding: 0;
+        background-color: transparent;
+        backdrop-filter: none;
     }
 
     .nav-links a {
         font-size: 1rem;
+        white-space: nowrap; /* <<< THIS IS THE FIX <<< */
     }
 }
 
@@ -230,6 +240,8 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
 
 /* --- Media Queries --- */
 
+/* --- Media Queries --- */
+
 /* Desktop layout for Header */
 @media (min-width: 992px) {
     .main-header .container {
@@ -250,23 +262,37 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
 /* --- MOBILE LAYOUTS (768px and below) --- */
 @media (max-width: 768px) {
 
-    /* --- NEW RULE: MAKE HEADER TRANSPARENT ON MOBILE --- */
+    /* --- Rule to make the header transparent on mobile --- */
     .main-header {
         background-color: transparent;
-        box-shadow: none; /* Removes any shadow the header might have */
+        box-shadow: none;
     }
-    /* If your header has a different class, change .main-header to that class */
-    /* --- END OF NEW RULE --- */
 
+    /* --- Rule for the decorative logo on mobile --- */
     .hero-decoration-logo {
-        /* Center the logo horizontally */
         left: 50%;
         transform: translateX(-50%);
         right: auto;
-
-        /* Adjust vertical position for mobile */
         bottom: 2rem;
     }
+
+    /* --- NEW: Font size adjustments for mobile --- */
+    .hero-text h1 {
+        /* Original was clamp(2rem, 10vw, 4.5rem) */
+        font-size: clamp(1.8rem, 9vw, 3.5rem); /* Smaller min, preferred, and max sizes */
+        line-height: 1.2; /* Improves readability for multi-line headings */
+    }
+
+    .hero-text p {
+        /* Original was clamp(1rem, 3vw, 1.15rem) */
+        font-size: 0.95rem; /* A simple, slightly smaller size for mobile */
+    }
+
+    .sponsor-text {
+        /* Original was 0.9rem */
+        font-size: 0.8rem; /* Making the sponsor text a bit smaller */
+    }
+    /* --- END OF FONT ADJUSTMENTS --- */
 }
 
 /* 4. Discover Section (REDESIGNED) */

@@ -1,41 +1,34 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // --- Code for Header Scroll Effect & NEW Hamburger Menu ---
+    // --- Code for Header Scroll Effect & Hamburger Menu ---
     const header = document.querySelector('.main-header');
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
+    const fanZonePrompt = document.querySelector('.fan-zone-prompt'); // <-- CHANGED: Now we select the text, not the container
 
+    // Adds a background to the header on scroll
     window.addEventListener('scroll', () => {
         header.classList.toggle('scrolled', window.scrollY > 50);
     });
 
-    // Event listener to open/close the mobile menu
+    // Event listener to open/close the mobile menu overlay
     menuToggle.addEventListener('click', () => {
         menuToggle.classList.toggle('active');
         navLinks.classList.toggle('active');
+        fanZonePrompt.classList.toggle('hidden'); // <-- CHANGED: We now hide the text only
     });
 
     // Event listener to close the menu when a link is clicked
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
-            if (navLinks.classList.contains('active')) {
+            if (navLinks.classList.contains('active') && link.getAttribute('target') !== '_blank') {
                 menuToggle.classList.remove('active');
                 navLinks.classList.remove('active');
+                fanZonePrompt.classList.remove('hidden'); // <-- CHANGED: We show the text again
             }
         });
     });
 
-    // --- GSAP Animations (No changes needed here) ---
-    gsap.registerPlugin(ScrollTrigger);
 
-    // Hero Section Animation
-    const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-    heroTl.from('.video-background', { scale: 1.2, duration: 2.5, opacity: 0.5 })
-          .to('.hero-anim-item', { opacity: 1, y: 0, duration: 1, stagger: 0.15 }, "-=1.5");
-
-    gsap.to('.video-background', {
-        yPercent: 20, ease: 'none',
-        scrollTrigger: { trigger: '.hero-section', start: 'top top', end: 'bottom top', scrub: true }
-    });
 
     // --- Logic for Modals (No changes needed here) ---
     const openModalButtons = document.querySelectorAll('[data-modal-target]');

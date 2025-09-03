@@ -20,19 +20,20 @@
 </head>
 <body>
 
-<!-- Header -->
 <header class="main-header">
-    <div class="container">
-        <a href="index.html" class="logo">
-            <img src="logo2.png" alt="Kigali 2025 Logo">
-        </a>
-        <!-- Hamburger Menu Button -->
+    <!-- This container now holds the text and the hamburger button -->
+    <!-- It's only visible on mobile screens via CSS -->
+    <div class="mobile-menu-container">
+        <p class="fan-zone-prompt">Your Fan Zone Experience starts here</p>
         <button class="menu-toggle" aria-label="Open Navigation Menu">
             <div class="bar"></div>
             <div class="bar"></div>
             <div class="bar"></div>
         </button>
-        <!-- NAVIGATION LINKS UPDATED HERE -->
+    </div>
+
+    <!-- The navigation links remain inside the main container -->
+    <div class="container">
         <ul class="nav-links">
             <li>
                 <a href="https://www.uci.org/competition-hub/2025-uci-road-world-championships/7mnrx8NLAbor8iWnlpCuwe?tab=overview" target="_blank" rel="noopener noreferrer">Discover UCI</a>
@@ -49,18 +50,6 @@
 
 <main>
     <section id="hero" class="hero-section">
-        <div class="container">
-            <div class="hero-content-wrapper">
-                <div class="hero-text">
-                    <div class="sponsor-banner hero-anim-item">
-                        <span class="sponsor-text">Bralirwa proud beverage sponsor</span>
-                    </div>
-                    <h1 class="hero-anim-item">Spotlight on Kigali every <br><span>Turn Refreshed</span></h1>
-                    <p class="hero-anim-item">Welcome to the official fan hub, proudly sponsored by Bralirwa. Immerse yourself in the electric atmosphere where cycling passion meets vibrant culture.</p>
-                </div>
-            </div>
-        </div>
-        <img src="brlogo.png" alt="Rwanda Map Decoration" class="hero-decoration-logo">
     </section>
 
     <!-- Discover Section -->
@@ -78,7 +67,7 @@
                 </div>
                 <!-- Card 2: Fun Zone -->
                 <div class="card anim-element" style="--delay: 0.1s;">
-                    <img src="b2.png" alt="Vibrant festival with lights">
+                    <img src="b2.jpg" alt="Vibrant festival with lights">
                     <div class="card-content">
                         <h3>The Bralirwa Fan Zone Experience</h3>
                         <p>Dive into a world of excitement with live music, food stalls, interactive games, and exclusive fan experiences.</p>

@@ -151,20 +151,23 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
     padding: 0;
     overflow: hidden;
 
-    /* --- NEW BACKGROUND IMAGE STYLES --- */
-    /* Replace 'hero-background.jpg' with the path to your image */
-    background-image: url('b2.png');
-    background-size: cover; /* Ensures the image covers the entire section */
-    background-position: center center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents the image from tiling */
+    /* --- BACKGROUND IMAGES FOR DESKTOP & MOBILE --- */
+
+    /* Default (Desktop) background image */
+    background-image: url('b2pc.png'); /* Replace with your DESKTOP image */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
-/* --- THESE RULES ARE NO LONGER NEEDED --- */
-/*
-.video-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
-.video-background video { width: 100%; height: 100%; object-fit: cover; }
-*/
-/* --- END OF REMOVED RULES --- */
+/* Media query to apply a DIFFERENT background on mobile screens */
+@media (max-width: 768px) {
+    .hero-section {
+        /* Mobile background image */
+        background-image: url('b2.png'); /* Replace with your MOBILE image */
+    }
+}
+/* --- END OF BACKGROUND IMAGE RULES --- */
 
 
 .hero-section::after {
@@ -178,10 +181,10 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
     z-index: 2;
 }
 
-/* --- Z-INDEX FIX FOR VISIBILITY (This part remains the same) --- */
+/* --- Z-INDEX FIX FOR VISIBILITY --- */
 .hero-content-wrapper {
     position: relative;
-    z-index: 4; /* Content is on top */
+    z-index: 4;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -193,7 +196,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
     right: 20rem;
     width: 300px;
     pointer-events: none;
-    z-index: 3; /* Logo is visible above the gradient but below the content */
+    z-index: 3;
 }
 /* --- End of visibility fix --- */
 
@@ -204,8 +207,6 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
 .hero-text h1 { font-size: clamp(2rem, 10vw, 4.5rem); font-weight: 900; text-transform: uppercase; letter-spacing: 1px; }
 .hero-text h1 span { color: var(--primary-green); }
 .hero-text p { font-size: clamp(1rem, 3vw, 1.15rem); max-width: 600px; margin: 1.5rem auto 0; color: var(--text-secondary); }
-
-/* --- Media Queries --- */
 
 .cta-button {
     display: inline-block;
@@ -226,12 +227,14 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(46, 204, 113, 0.5);
 }
+
+/* --- Media Queries --- */
+
 /* Desktop layout for Header */
 @media (min-width: 992px) {
     .main-header .container {
-        justify-content: space-between; /* Revert to space-between on desktop */
+        justify-content: space-between;
     }
-
 }
 
 /* Desktop layout for Hero */
@@ -244,18 +247,25 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
     }
 }
 
-/* Updated mobile layout for decorative logo */
+/* --- MOBILE LAYOUTS (768px and below) --- */
 @media (max-width: 768px) {
+
+    /* --- NEW RULE: MAKE HEADER TRANSPARENT ON MOBILE --- */
+    .main-header {
+        background-color: transparent;
+        box-shadow: none; /* Removes any shadow the header might have */
+    }
+    /* If your header has a different class, change .main-header to that class */
+    /* --- END OF NEW RULE --- */
+
     .hero-decoration-logo {
         /* Center the logo horizontally */
         left: 50%;
         transform: translateX(-50%);
-        right: auto; /* Override the desktop 'right' property */
+        right: auto;
 
         /* Adjust vertical position for mobile */
         bottom: 2rem;
-
-        /* Width is inherited from the base style, so it remains 300px */
     }
 }
 

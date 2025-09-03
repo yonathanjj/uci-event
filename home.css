@@ -495,7 +495,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
 }
 
 .footer-col .logo img {
-  height: 60px;   /* adjust based on footer design */
+  height: 60px;
   width: auto;
   display: block;
 }
@@ -505,7 +505,14 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
 .footer-col ul li { margin-bottom: 0.7rem; }
 .footer-col ul a { color: var(--text-secondary); text-decoration: none; transition: color 0.3s ease; }
 .footer-col ul a:hover { color: var(--primary-green); }
-.social-icons { display: flex; gap: 1.5rem; }
+
+.social-icons {
+    display: flex;
+    flex-direction: column; /* CHANGED: Makes icons stack vertically on mobile */
+    align-items: flex-start; /* ADDED: Aligns the vertical icons to the left */
+    gap: 1.5rem;
+}
+
 .social-icons a { color: var(--text-secondary); font-size: 1.5rem; transition: color 0.3s ease, transform 0.3s ease; }
 .social-icons a:hover { color: var(--primary-green); transform: translateY(-3px); }
 
@@ -515,6 +522,11 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
 @media (min-width: 768px) {
     .footer-grid {
         grid-template-columns: 2fr 1fr 1fr 1fr;
+    }
+
+    /* ADDED THIS NEW RULE FOR DESKTOP */
+    .social-icons {
+        flex-direction: row; /* Resets icons to be horizontal on larger screens */
     }
 }
 

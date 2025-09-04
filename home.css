@@ -19,10 +19,6 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
 .btn:hover { background-color: #3bff86; transform: translateY(-3px); }
 
 /* ================================== */
-/* 2. Header & Navigation (REVISED)   */
-/* ================================== */
-
-/* ================================== */
 /* 2. Header & Navigation (FINAL)     */
 /* ================================== */
 
@@ -41,29 +37,23 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
 /* --- MOBILE MENU CONTAINER --- */
 .mobile-menu-container {
     position: fixed;
-    bottom: 1.5rem; /* CHANGED: Moved slightly lower to look balanced */
-    left: 1.5rem;   /* CHANGED: Increased space from edge to make it narrower */
-    right: 1.5rem;  /* CHANGED: Increased space from edge to make it narrower */
+    bottom: 1.5rem;
+    left: 1.5rem;
+    right: 1.5rem;
     width: auto;
     z-index: 1001;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.8rem; /* CHANGED: Slightly less space between text and button */
-    /* CHANGED: More transparent background (from 0.8 to 0.65) */
-    background-color: rgba(11, 29, 22, 0.65);
-    backdrop-filter: blur(8px);
-    /* CHANGED: Reduced padding to make the box shorter */
-    padding: 1.2rem 1rem;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 0.8rem;
+    /* REMOVED: All background, padding, and border styles to make the container invisible */
 }
 
 /* --- FAN ZONE PROMPT TEXT --- */
 .fan-zone-prompt {
     color: #FEEA00;
-    font-size: 2.4rem; /* CHANGED: Reduced font size from 2.8rem */
-    font-weight: 700;
+    font-size: 2.4rem;
+    font-weight: normal; /* CHANGED: Set font-weight from 700 to normal (not bold) */
     line-height: 1.2;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
     text-align: center;
@@ -145,21 +135,21 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
 
     /* CHANGED: 'cover' is the correct property to make the image fill the entire area.
        This will remove the empty space around the image. */
-    background-size: cover;
+  background-size: 100% 100%;  /* stretches to fit both width & height */
 
     /* This centers the image within the container, which is ideal for 'cover' */
-    background-position: center center;
+    background-position: center top;
 
     background-repeat: no-repeat;
 
     /* This color will show briefly if the image is slow to load */
-    background-color: var(--dark-navy-bg);
+    background-color: var(--dark-navy-bg); /* fills any leftover space */
 }
 
 /* Media query for the mobile background image */
 @media (max-width: 768px) {
     .hero-section {
-        background-image: url('b22.jpg');
+        background-image: url('b22.png');
     }
 }
 

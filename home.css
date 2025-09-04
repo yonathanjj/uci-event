@@ -46,14 +46,15 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
     flex-direction: column;
     align-items: center;
     gap: 0.8rem;
-    /* REMOVED: All background, padding, and border styles to make the container invisible */
+    /* This container is now invisible and just positions the content */
 }
 
 /* --- FAN ZONE PROMPT TEXT --- */
 .fan-zone-prompt {
     color: #FEEA00;
+    font-family: 'Barlow Condensed', sans-serif; /* NEW: Added requested font */
     font-size: 2.4rem;
-    font-weight: normal; /* CHANGED: Set font-weight from 700 to normal (not bold) */
+    font-weight: 700; /* CHANGED: Set font-weight back to bold (700 is a common value for bold) */
     line-height: 1.2;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
     text-align: center;
@@ -108,18 +109,9 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
 .nav-links.active li:nth-child(2) a { transition-delay: 0.3s; }
 .nav-links.active li:nth-child(3) a { transition-delay: 0.4s; }
 
-/* --- DESKTOP STYLES (NO CHANGES) --- */
-@media (min-width: 992px) {
-    .main-header { padding: 1.5rem 0; }
-    .main-header .container { justify-content: center; }
-    .mobile-menu-container { display: none; }
-    .nav-links { position: static; width: auto; height: auto; flex-direction: row;
-        background-color: transparent; backdrop-filter: none; gap: 2.5rem;
-        opacity: 1; pointer-events: auto;
-    }
-    .nav-links li { width: auto; }
-    .nav-links a { font-size: 1rem; white-space: nowrap; opacity: 1; transform: none; }
-}
+/* --- DESKTOP STYLES --- */
+/* REMOVED: The entire @media block was deleted to make the mobile styles apply everywhere. */
+
 
 /* ================================== */
 /* 3. Hero Section (DEFINITIVELY FIXED) */
@@ -129,27 +121,16 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
     min-height: 700px;
     position: relative;
     overflow: hidden;
-
-    /* Default (Desktop) background image */
     background-image: url('b2pc.jpg');
-
-    /* CHANGED: 'cover' is the correct property to make the image fill the entire area.
-       This will remove the empty space around the image. */
-  background-size: 100% 100%;  /* stretches to fit both width & height */
-
-    /* This centers the image within the container, which is ideal for 'cover' */
+    background-size: 100% 100%;
     background-position: center top;
-
     background-repeat: no-repeat;
-
-    /* This color will show briefly if the image is slow to load */
-    background-color: var(--dark-navy-bg); /* fills any leftover space */
+    background-color: var(--dark-navy-bg);
 }
 
-/* Media query for the mobile background image */
 @media (max-width: 768px) {
     .hero-section {
-        background-image: url('b22.png');
+        background-image: url('c.png');
     }
 }
 

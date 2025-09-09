@@ -85,19 +85,28 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
 }
 
 /* Active 'X' state for hamburger (NO CHANGES) */
-.menu-toggle.active { background-color: rgba(20, 50, 40, 0.8); }
+.menu-toggle.active {  background-color: rgba(20, 50, 40, 0.3) !important; }
 .menu-toggle.active .bar:nth-child(1) { transform: rotate(45deg) translate(7px, 7px); }
 .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
 .menu-toggle.active .bar:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
 
 /* --- MOBILE NAVIGATION OVERLAY (NO CHANGES) --- */
+/* --- MOBILE NAVIGATION OVERLAY (MODIFIED) --- */
 .nav-links {
     position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
     display: flex; flex-direction: column; justify-content: center; align-items: center;
-    gap: 2rem; background-color: rgba(11, 29, 22, 0.95); backdrop-filter: blur(10px);
+    gap: 2rem;
+
+    /* MODIFIED: Reduced opacity from 0.95 to 0.8 for more transparency */
+    background-color: rgba(11, 29, 22, 0.3);
+
+    /* MODIFIED: Reduced blur from 10px to 5px to make the background clearer */
+    backdrop-filter: blur(5px);
+
     opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
     z-index: 1000; list-style: none; padding: 0;
 }
+
 .nav-links.active { opacity: 1; pointer-events: auto; }
 .nav-links li { width: 80%; }
 .nav-links a { color: var(--text-color); text-decoration: none; font-size: 1.5rem;
@@ -245,6 +254,124 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
 .tab-content.active { display: block; }
 .tab-content iframe { width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 10px; margin-top: 1rem; }
 @media (max-width: 500px) { .activity-text { grid-template-columns: 1fr; gap: 0.2rem; } .activity-text strong { margin-bottom: 0.2rem; } }
+
+
+
+/* --- FINAL Modal Content & Card Styles --- */
+.tab-content-wrapper {
+    padding-top: 1rem;
+}
+
+.sub-tabs {
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 1.5rem;
+}
+
+.location-card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+/* Clickable Map Card (Unchanged) */
+.map-card {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid rgba(46, 204, 113, 0.2);
+}
+.map-card img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform 0.4s ease;
+}
+.map-card:hover img { transform: scale(1.05); }
+.map-card-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(8, 20, 16, 0.95) 0%, rgba(8, 20, 16, 0) 70%);
+    display: flex; flex-direction: column; justify-content: flex-end; align-items: center;
+    padding: 1rem; color: #fff; text-align: center;
+}
+.map-card-overlay i { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--primary-green); }
+.map-card-overlay span { font-weight: 600; }
+
+
+/* NEW: Description Card with Full Background Image */
+.description-card {
+    position: relative; /* Container for absolute positioning */
+    overflow: hidden; /* Keeps the rounded corners on the image */
+    border-radius: 10px;
+    min-height: 300px; /* Ensures card has a consistent height */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Pushes text content to the bottom */
+    border: 1px solid rgba(46, 204, 113, 0.2);
+}
+
+.description-card img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 1; /* Sits behind the text */
+}
+
+.description-content {
+    position: relative;
+    z-index: 2; /* Sits on top of the image */
+    padding: 1.5rem;
+    /* Gradient overlay for text readability */
+    background: linear-gradient(to top, rgba(8, 20, 16, 1) 0%, rgba(8, 20, 16, 0.9) 50%, rgba(8, 20, 16, 0) 100%);
+}
+
+.description-card h5 {
+    font-size: 1.3rem;
+    color: var(--primary-green);
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.description-card ul {
+    list-style: none; padding: 0; margin: 0;
+    display: flex; flex-direction: column; gap: 0.9rem;
+}
+
+.description-card li {
+    font-size: 0.95rem; line-height: 1.6; color: var(--text-secondary);
+}
+
+.description-card li strong {
+    color: var(--text-color); margin-right: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .location-card-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Add these styles for the slideshow --- */
+
+.slideshow-container {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 1; /* Sits behind the text content */
+}
+
+.slideshow-container .slide {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0; /* Hidden by default */
+    transition: opacity 1s ease-in-out; /* Smooth fade transition */
+}
+
+.slideshow-container .slide.active {
+    opacity: 1; /* Visible when active */
+}
 
 
 

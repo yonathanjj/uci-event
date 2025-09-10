@@ -227,7 +227,8 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
 /* 5. Modal Styles (REDESIGNED) */
 .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(11, 29, 22, 0.7); backdrop-filter: blur(8px); display: flex; justify-content: center; align-items: center; z-index: 2000; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
 .modal-overlay.active { opacity: 1; pointer-events: auto; }
-.modal { background: #081410; border: 1px solid rgba(46, 204, 113, 0.2); border-radius: 15px; width: 90%; max-width: 650px; max-height: 90vh; display: flex; flex-direction: column; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3); }
+/* INCREASED MAX-WIDTH FOR NEW LAYOUT */
+.modal { background: #081410; border: 1px solid rgba(46, 204, 113, 0.2); border-radius: 15px; width: 90%; max-width: 800px; max-height: 90vh; display: flex; flex-direction: column; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3); }
 .close-modal { position: absolute; top: 1rem; right: 1rem; background: none; border: none; color: var(--text-color); font-size: 2rem; cursor: pointer; line-height: 1; z-index: 10; }
 .modal-header { padding: 2rem 2rem 1rem; text-align: center; }
 .modal-header h3 { font-size: 1.8rem; color: var(--primary-green); }
@@ -236,9 +237,9 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
 .modal-body { padding: 0 2rem 2rem; overflow-y: auto; }
 .modal-body h4 { font-size: 1.2rem; margin-bottom: 1.5rem; border-bottom: 1px solid rgba(46, 204, 113, 0.2); padding-bottom: 0.5rem; }
 .modal-body hr { border: none; height: 1px; background-color: rgba(46, 204, 113, 0.2); margin: 2rem 0; }
-.activities-list, .locations-list { list-style: none; display: flex; flex-direction: column; gap: 1.5rem; }
-.activities-list li, .locations-list li { display: flex; align-items: flex-start; gap: 1rem; }
-.activities-list i, .locations-list i { color: var(--primary-green); margin-top: 5px; width: 24px; text-align: center; font-size: 1.2rem; flex-shrink: 0; }
+.activities-list { list-style: none; display: flex; flex-direction: column; gap: 1.5rem; padding:0; }
+.activities-list li { display: flex; align-items: flex-start; gap: 1rem; }
+.activities-list i { color: var(--primary-green); margin-top: 5px; width: 24px; text-align: center; font-size: 1.2rem; flex-shrink: 0; }
 .activity-text { display: grid; grid-template-columns: minmax(140px, 160px) 1fr; align-items: baseline; gap: 0.5rem; }
 .activity-text strong { font-size: 1.1rem; color: var(--text-color); }
 .activity-text span { color: var(--text-secondary); line-height: 1.5; }
@@ -251,15 +252,13 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
 .tab-link { background: none; border: none; color: var(--text-secondary); padding: 0.8rem; cursor: pointer; font-size: 1rem; transition: background-color 0.3s ease; }
 .tab-link.active { color: var(--dark-navy-bg); background-color: var(--primary-green); font-weight: 600; }
 .tab-content { display: none; }
-.tab-content.active { display: block; }
+.tab-content.active { display: block; animation: fadeIn 0.4s ease; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 .tab-content iframe { width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 10px; margin-top: 1rem; }
-@media (max-width: 500px) { .activity-text { grid-template-columns: 1fr; gap: 0.2rem; } .activity-text strong { margin-bottom: 0.2rem; } }
 
-
-
-/* --- FINAL Modal Content & Card Styles --- */
+/* --- NEW & MODIFIED STYLES for Vertical Layout --- */
 .tab-content-wrapper {
-    padding-top: 1rem;
+    padding-top: 1.5rem;
 }
 
 .sub-tabs {
@@ -267,112 +266,112 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
     margin-bottom: 1.5rem;
 }
 
-.location-card-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-}
-
-/* Clickable Map Card (Unchanged) */
-.map-card {
-    position: relative;
-    display: block;
-    overflow: hidden;
-    border-radius: 10px;
-    border: 1px solid rgba(46, 204, 113, 0.2);
-}
-.map-card img {
-    width: 100%; height: 100%; object-fit: cover; display: block;
-    transition: transform 0.4s ease;
-}
-.map-card:hover img { transform: scale(1.05); }
-.map-card-overlay {
-    position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(8, 20, 16, 0.95) 0%, rgba(8, 20, 16, 0) 70%);
-    display: flex; flex-direction: column; justify-content: flex-end; align-items: center;
-    padding: 1rem; color: #fff; text-align: center;
-}
-.map-card-overlay i { font-size: 1.8rem; margin-bottom: 0.5rem; color: var(--primary-green); }
-.map-card-overlay span { font-weight: 600; }
-
-
-/* NEW: Description Card with Full Background Image */
-.description-card {
-    position: relative; /* Container for absolute positioning */
-    overflow: hidden; /* Keeps the rounded corners on the image */
-    border-radius: 10px;
-    min-height: 300px; /* Ensures card has a consistent height */
+/* NEW: Description List at the top */
+.location-info-list {
+    list-style: none;
+    padding: 0 0 1.5rem 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end; /* Pushes text content to the bottom */
+    gap: 0.9rem;
+    border-bottom: 1px solid rgba(46, 204, 113, 0.2);
+    margin-bottom: 1.5rem;
+}
+.location-info-list li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+.location-info-list li strong {
+    color: var(--text-color);
+    margin-right: 0.5rem;
+}
+
+/* NEW: Full-width Map Link */
+.map-image-link {
+    display: block;
+    border-radius: 10px;
+    overflow: hidden;
     border: 1px solid rgba(46, 204, 113, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.map-image-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+.map-image-link img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
-.description-card img {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    z-index: 1; /* Sits behind the text */
+/* NEW: Direction Buttons Container */
+.direction-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1.5rem;
 }
 
-.description-content {
-    position: relative;
-    z-index: 2; /* Sits on top of the image */
-    padding: 1.5rem;
-    /* Gradient overlay for text readability */
-    background: linear-gradient(to top, rgba(8, 20, 16, 1) 0%, rgba(8, 20, 16, 0.9) 50%, rgba(8, 20, 16, 0) 100%);
-}
-
-.description-card h5 {
-    font-size: 1.3rem;
+/* NEW: Individual Direction Button */
+.btn-direction {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.8rem;
+    background-color: rgba(46, 204, 113, 0.1);
     color: var(--primary-green);
-    margin-top: 0;
-    margin-bottom: 1rem;
+    border: 1px solid rgba(46, 204, 113, 0.3);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease;
 }
-
-.description-card ul {
-    list-style: none; padding: 0; margin: 0;
-    display: flex; flex-direction: column; gap: 0.9rem;
-}
-
-.description-card li {
-    font-size: 0.95rem; line-height: 1.6; color: var(--text-secondary);
-}
-
-.description-card li strong {
-    color: var(--text-color); margin-right: 0.5rem;
+.btn-direction:hover {
+    background-color: var(--primary-green);
+    color: var(--dark-navy-bg);
+    border-color: var(--primary-green);
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .location-card-grid {
-        grid-template-columns: 1fr;
+    .direction-buttons {
+        grid-template-columns: 1fr; /* Stack buttons on mobile */
     }
 }
-
-/* --- Add these styles for the slideshow --- */
-
-.slideshow-container {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: 1; /* Sits behind the text content */
+@media (max-width: 500px) {
+    .activity-text { grid-template-columns: 1fr; gap: 0.2rem; }
+    .activity-text strong { margin-bottom: 0.2rem; }
 }
 
-.slideshow-container .slide {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    opacity: 0; /* Hidden by default */
-    transition: opacity 1s ease-in-out; /* Smooth fade transition */
+/* --- NEW CSS for the Schedule Section --- */
+
+.schedule-section {
+    /* Adds space above and prepares for the bottom border */
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(46, 204, 113, 0.2);
 }
 
-.slideshow-container .slide.active {
-    opacity: 1; /* Visible when active */
+.schedule-section h4 {
+    /* Resets the default modal h4 style to match the image */
+    text-align: left;
+    border-bottom: none;
+    padding-bottom: 0;
+
+    /* Adds the line ABOVE the heading */
+    padding-top: 2rem;
+    margin-bottom: 1.5rem;
+    border-top: 1px solid rgba(46, 204, 113, 0.2);
 }
 
+/* The existing .btn-secondary style works perfectly here.
+   This just ensures its top margin is reset within this section. */
+.schedule-section .btn-secondary {
+    margin-top: 0;
+}
 
 
 /* 7. Animation Logic */

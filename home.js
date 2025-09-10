@@ -30,50 +30,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-   // --- Logic for Modals with Integrated Slideshows ---
+   // --- Logic for Modals (Simplified: Slideshows Removed) ---
    const openModalButtons = document.querySelectorAll('[data-modal-target]');
    const closeModalButtons = document.querySelectorAll('.close-modal');
    const body = document.body;
 
    /**
-    * Starts all slideshows within a specific modal.
-    * @param {HTMLElement} modal The modal element that has been opened.
-    */
-   const startSlideshows = (modal) => {
-       const slideshows = modal.querySelectorAll('.slideshow-container');
-       slideshows.forEach(container => {
-           const slides = container.querySelectorAll('.slide');
-           // Don't start a slideshow if there's only one image or none
-           if (slides.length <= 1) return;
-
-           let currentIndex = 0;
-           // Store the interval ID on the element itself so we can find and clear it later
-           container.dataset.intervalId = setInterval(() => {
-               slides[currentIndex].classList.remove('active');
-               // Use the modulo operator to loop back to the start
-               currentIndex = (currentIndex + 1) % slides.length;
-               slides[currentIndex].classList.add('active');
-           }, 3000); // 3 seconds per slide
-       });
-   };
-
-   /**
-    * Stops all running slideshows within a specific modal.
-    * @param {HTMLElement} modal The modal element that is being closed.
-    */
-   const stopSlideshows = (modal) => {
-       const slideshows = modal.querySelectorAll('.slideshow-container');
-       slideshows.forEach(container => {
-           // Check if an interval was stored on this container
-           if (container.dataset.intervalId) {
-               clearInterval(container.dataset.intervalId);
-               delete container.dataset.intervalId; // Clean up the stored ID
-           }
-       });
-   };
-
-   /**
-    * Opens a modal and starts its slideshows.
+    * Opens a modal.
     * @param {HTMLElement} modal The modal element to open.
     */
    const openModal = (modal) => {
@@ -81,16 +44,14 @@ document.addEventListener('DOMContentLoaded', function() {
        modal.classList.add('active');
        body.style.overflow = 'hidden';
        gsap.from(modal.querySelector('.modal'), { opacity: 0, scale: 0.9, duration: 0.3, ease: 'power2.out' });
-       startSlideshows(modal); // Start slideshows when modal opens
    };
 
    /**
-    * Closes a modal and stops its slideshows.
+    * Closes a modal.
     * @param {HTMLElement} modal The modal element to close.
     */
    const closeModal = (modal) => {
        if (modal == null) return;
-       stopSlideshows(modal); // Stop slideshows before closing animation
        gsap.to(modal.querySelector('.modal'), {
            opacity: 0, scale: 0.9, duration: 0.3, ease: 'power2.in',
            onComplete: () => {
@@ -158,7 +119,6 @@ document.addEventListener('DOMContentLoaded', function() {
            }
        });
    });
-
 
     // Intersection Observer
     const animatedElements = document.querySelectorAll('.anim-element');

@@ -91,34 +91,42 @@ document.addEventListener('DOMContentLoaded', function() {
    });
 
 
-   // --- Tab Logic to handle nested tabs ---
-   const allTabs = document.querySelectorAll('.tab-link');
+  // --- Tab Logic to handle nested tabs ---
+  const allTabs = document.querySelectorAll('.tab-link');
 
-   allTabs.forEach(tab => {
-       tab.addEventListener('click', () => {
-           const tabGroup = tab.closest('.tabs');
-           if (!tabGroup) return;
+  allTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+          const tabGroup = tab.closest('.tabs');
+          if (!tabGroup) return;
 
-           const contentWrapper = tabGroup.nextElementSibling;
-           if (!contentWrapper || !contentWrapper.classList.contains('tab-content-wrapper')) {
-               console.error("Tab content wrapper not found!");
-               return;
-           }
+          const contentWrapper = tabGroup.nextElementSibling;
+          if (!contentWrapper || !contentWrapper.classList.contains('tab-content-wrapper')) {
+              console.error("Tab content wrapper not found!");
+              return;
+          }
 
-           const targetId = tab.dataset.tab;
-           const targetContent = contentWrapper.querySelector('#' + targetId);
+          const targetId = tab.dataset.tab;
+          const targetContent = contentWrapper.querySelector('#' + targetId);
 
-           // Deactivate all tabs and content within the same group
-           tabGroup.querySelectorAll('.tab-link').forEach(t => t.classList.remove('active'));
-           contentWrapper.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
+          // Deactivate all tabs and content within the same group
+          tabGroup.querySelectorAll('.tab-link').forEach(t => t.classList.remove('active'));
+          contentWrapper.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
 
-           // Activate the clicked tab and its corresponding content
-           tab.classList.add('active');
-           if (targetContent) {
-               targetContent.classList.add('active');
-           }
-       });
-   });
+          // Activate the clicked tab and its corresponding content
+          tab.classList.add('active');
+          if (targetContent) {
+              targetContent.classList.add('active');
+
+              // --- FIX ADDED HERE ---
+              // After revealing the content, check if it contains a nested tab system
+              const nestedActiveTab = targetContent.querySelector('.tabs.sub-tabs .tab-link.active');
+              if (nestedActiveTab) {
+                  // If it does, trigger a click on its default active tab to ensure its content is visible
+                  nestedActiveTab.click();
+              }
+          }
+      });
+  });
 
     // Intersection Observer
     const animatedElements = document.querySelectorAll('.anim-element');

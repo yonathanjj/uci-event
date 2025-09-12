@@ -262,7 +262,8 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
 }
 
 .sub-tabs {
-    grid-template-columns: repeat(3, 1fr);
+    /* ADJUSTED: Changed from 3 columns to 2 to balance the two day buttons */
+    grid-template-columns: repeat(2, 1fr);
     margin-bottom: 1.5rem;
 }
 

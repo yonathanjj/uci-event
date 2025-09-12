@@ -288,6 +288,12 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
     margin-right: 0.5rem;
 }
 
+/* --- RULE FOR HIGHLIGHTING LOCATIONS --- */
+.location-highlight {
+    font-weight: bold;
+    color: var(--primary-green);
+}
+
 /* NEW: Full-width Map Link */
 .map-image-link {
     display: block;
@@ -373,7 +379,6 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
 .schedule-section .btn-secondary {
     margin-top: 0;
 }
-
 
 /* 7. Animation Logic */
 .hero-anim-item { opacity: 0; transform: translateY(30px); }

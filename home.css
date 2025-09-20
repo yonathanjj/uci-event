@@ -127,18 +127,26 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.
     min-height: 700px;
     position: relative;
     overflow: hidden;
-    background-image: url('b2pc.jpg');
-    background-size: 100% 100%;
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-color: var(--dark-navy-bg);
+    background-color: var(--dark-navy-bg); /* Fallback for slow connections */
 }
 
-@media (max-width: 768px) {
-    .hero-section {
-        background-image: url('c.png');
-    }
+/* This style will now apply to ALL screen sizes */
+.hero-section .hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    /*
+      This is the direct replacement for 'background-size: 100% 100%'.
+      It forces the video to stretch to fit the container exactly.
+    */
+    object-fit: fill;
 }
+
+
 
 /* REMOVED: The gradient overlay pseudo-element has been deleted */
 /* .hero-section::after { ... } */
